@@ -1,0 +1,49 @@
+\RequirePackage[T1,T2A]{fontenc}
+\RequirePackage[utf8]{inputenc}
+
+\RequirePackage[english, russian]{babel}
+\RequirePackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\RequirePackage{amsmath}
+\RequirePackage[unicode=true,
+	colorlinks=true,
+	linkcolor=black,
+	citecolor=black, 
+	urlcolor=black, 
+	pagecolor=black, 
+	filecolor=black]{hyperref}
+
+\RequirePackage{graphicx}
+\graphicspath{{list_of_figs/}}
+\RequirePackage{subfigure}
+\RequirePackage{epstopdf}
+\RequirePackage{cite}
+\RequirePackage{indentfirst}
+
+\tolerance = 10000
+\topmargin -1.02cm
+\oddsidemargin 0.7cm
+%\oddsidemargin 0.96cm
+\textheight 24.0cm
+\textwidth 16.0cm
+\renewcommand{\baselinestretch}{1.025}
+\binoppenalty=10000
+\relpenalty=10000
+\parindent=1.5cm
+\renewcommand{\figurename}{\large Рис.}
+%\renewcommand{\bibname}{Список использованных источников}
+%\renewcommand{\thefigure}{\large\thechapter.\arabic{figure}}
+\renewcommand{\figurename}{\small\sf Рис.}
+\renewcommand{\floatpagefraction}{0.1}
+\newcommand{\Num}{{\char"0F2}}
+\newcommand{\lcq}{{\char"03C}}
+\newcommand{\rcq}{{\char"03E}}
+\newcommand{\unit}[1]{\;{\rm{#1}}}
+\newcommand{\dgr}{\raisebox{0.4em}{$\scriptstyle\circ$}}
+\newcommand{\sci}[3]{{{#1}\cdot{10^{#2}}\,{\rm{#3}}}}
+\makeatletter
+\let\origref\ref
+\renewcommand{\ref}[1]{\textup{\tagform@{\origref{#1}}}}
+\makeatother
+\bibliographystyle{numeric}
+
+\bibliographystyle{list_of_libs/naturemag}

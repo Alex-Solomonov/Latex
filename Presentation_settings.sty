@@ -1,0 +1,32 @@
+\RequirePackage[T1,T2A]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[english, russian]{babel}
+\RequirePackage{graphicx}
+\graphicspath{{list_of_figs/}}
+\RequirePackage{xcolor}
+\RequirePackage{longtable}
+\RequirePackage{multirow}
+\RequirePackage{subfigure}
+\RequirePackage{epstopdf}
+\RequirePackage{colortbl}
+
+
+%% With sections
+%\usetheme[secheader]{Szeged}
+
+%% With framenumber
+%\usetheme{Boadilla}
+
+%%
+%
+\usetheme{Dresden}
+\useoutertheme[footline=authorinstitutetitle]{miniframes}
+%Berlin !Boadilla,  !Dresden,
+%Szeged
+\usecolortheme{dolphin}
+
+%% Add frame number at Dresden theme
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+   \insertshorttitle\hfill\insertframenumber\,/\,\inserttotalframenumber}
+%% Off navigation panel   
+\setbeamertemplate{navigation symbols}{}
