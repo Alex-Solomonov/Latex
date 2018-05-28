@@ -46,4 +46,15 @@
 \makeatother
 \bibliographystyle{numeric}
 
+\makeatletter
+\newcommand\appendix@chapter[1]{%
+  \renewcommand{\thechapter}{\Asbuk{chapter}}%
+  \refstepcounter{chapter}%
+  \orig@chapter*{\appendixname~\thechapter~~#1}%
+  \addcontentsline{toc}{chapter}{\appendixname~\thechapter~~#1}%
+}
+\let\orig@chapter\chapter
+\g@addto@macro\appendix{\let\chapter\appendix@chapter}
+\makeatother
+
 \bibliographystyle{list_of_libs/naturemag}
