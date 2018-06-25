@@ -5,11 +5,24 @@
 \RequirePackage[T1,T2A]{fontenc}
 \RequirePackage[utf8]{inputenc}
 
+
 %Manages culturally-determined typographical (and other) rules
 %Main lang rule --- russian 
 \RequirePackage[english, russian]{babel}
+
+%Make the first line of all sections etc., be indented by the usual paragraph indentation
+\RequirePackage{indentfirst}
+
+
+%Paper size, orientation and margins
 \RequirePackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+
+%Math features
 \RequirePackage{amsmath}
+
+
+%Provide hyperlink in papers
 \RequirePackage[unicode=true,
 	colorlinks=true,
 	linkcolor=black,
@@ -18,11 +31,13 @@
 	pagecolor=black, 
 	filecolor=black]{hyperref}
 
+
+%Math features
 \RequirePackage{graphicx}
 \graphicspath{{list_of_figs/}}
 \RequirePackage{subfigure}
 \RequirePackage{epstopdf}
-\RequirePackage{indentfirst}
+
 
 \RequirePackage{listings}
 
