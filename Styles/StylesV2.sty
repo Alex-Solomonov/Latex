@@ -1,0 +1,179 @@
+%Provides character map tables, which make PDF files  searchable and copyable
+\RequirePackage{cmap}
+
+
+\RequirePackage[T1,T2A]{fontenc}
+\RequirePackage[utf8x]{inputenc}
+
+
+%Manages culturally-determined typographical (and other) rules
+%Main lang rule --- russian 
+\RequirePackage[english, russian]{babel}
+
+%Make the first line of all sections etc., be indented by the usual paragraph indentation
+\RequirePackage{indentfirst}
+
+
+%Paper size, orientation and margins
+\RequirePackage[top=2cm, bottom=2cm, left=2.5cm, right=1cm]{geometry}
+
+
+%Math features
+\RequirePackage{amsmath}
+
+
+%Provide hyperlink in papers
+\RequirePackage[unicode=true,
+	colorlinks=true,
+	linkcolor=black,
+	citecolor=black, 
+	urlcolor=black,
+	filecolor=black]{hyperref}
+
+
+%Math features
+\RequirePackage{graphicx}
+\graphicspath{{list_of_figs/}}
+\RequirePackage{subfigure}
+\renewcommand\thesubfigure{(\asbuk{subfigure})}
+
+
+\RequirePackage{epstopdf}
+
+
+%Chemical features
+\RequirePackage{mhchem}
+\mhchemoptions{version=4}
+
+\RequirePackage{listings}
+\RequirePackage{color}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset{ 
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Python,                 % the language of the code
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+\RequirePackage{textcase} 
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{% Начало макроопределения
+  \vspace*{0 pt}% Пустое место вверху страницы
+  {\parindent=0pt
+  \centering \normalfont\large\bfseries
+  \MakeUppercase{\@chapapp{}} % \@chapapp печатает слово "Глава" (см. ниже)
+    \thechapter. % номер главы
+    \vspace{0 pt} % между словом "Глава" и ее заголовком
+    \normalfont\large\bfseries \MakeUppercase{#1}\par % заголовок главы
+    \nopagebreak     % чтоб не оторвать заголовок от текста
+    \vspace{2.5ex}   % между заголовком и текстом
+  }% конец группы.
+}% конец макроопределения
+
+% \renewcommand{\@makeschapterhead}[1]{%
+%   \vspace*{0 pt}%
+%   {\parindent=0pt \raggedright
+%     \centering\normalfont\large\bfseries  #1\par
+%     \nopagebreak
+%     \vspace{2.5ex}}}
+
+% \renewcommand\section{\@startsection {section}{1}{\z@}%
+%                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+%                                   {2.3ex \@plus.2ex}%
+%                                   {\centering\normalfont\bfseries}
+% }
+% \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+%                                      {-3.25ex plus -1ex minus-.2ex}%
+%                                      {1.5ex plus.2ex}
+%                                      {\centering\normalfont\normalsize\bfseries}
+% }
+% \renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+%                                      {-3.25ex plus -1ex minus-.2ex}%
+%                                      {1.5ex plus.2ex}
+%                                      {\centering\normalfont\normalsize\bfseries}
+% }
+\RequirePackage{etoolbox}
+
+\makeatother  
+
+
+% \makeatletter
+% \newcommand{\frontmatternumberline}{%
+%   \renewcommand{\numberline}[1]{\@chapapp~\MakeUppercase{##1 }}}
+% \newcommand{\appendixnumberline}{%
+%   \renewcommand{\numberline}[1]{##1\hfill\mbox{}\nobreak}}
+% \patchcmd{\l@chapter}% <cmd>
+%   {#1}% <search>
+%   {\frontmatternumberline #1}% <replace>
+%   {}{}% <success><failure>
+% \AtBeginEnvironment{appendices}{% Do the following when you hit \begin{appendices}
+%   \addtocontents{toc}{\string\let\string\frontmatternumberline\string\appendixnumberline}}
+% \makeatother
+
+\tolerance = 10000
+\binoppenalty=10000
+\relpenalty=10000
+\parindent=1.5cm
+\renewcommand{\figurename}{\large Рис.}
+%\renewcommand{\bibname}{Список использованных источников}
+%\renewcommand{\thefigure}{\large\thechapter.\arabic{figure}}
+\renewcommand{\figurename}{\small\sf Рис.}
+\renewcommand{\floatpagefraction}{0.1}
+\newcommand{\Num}{{\char"0F2}}
+\newcommand{\lcq}{{\char"03C}}
+\newcommand{\rcq}{{\char"03E}}
+\newcommand{\unit}[1]{\;{\rm{#1}}}
+\newcommand{\dgr}{\raisebox{0.4em}{$\scriptstyle\circ$}}
+\newcommand{\sci}[3]{{{#1}\cdot{10^{#2}}\,{\rm{#3}}}}
+\makeatletter
+\let\origref\ref
+\renewcommand{\ref}[1]{\textup{\tagform@{\origref{#1}}}}
+\makeatother
+
+\makeatletter
+\newcommand\appendix@chapter[1]{%
+  \renewcommand{\thechapter}{\Asbuk{chapter}}%
+  \refstepcounter{chapter}%
+  \orig@chapter*{\appendixname~\thechapter.~~#1}%
+  \addcontentsline{toc}{chapter}{\appendixname~\thechapter.~~#1}%
+}
+\let\orig@chapter\chapter
+\g@addto@macro\appendix{\let\chapter\appendix@chapter}
+\makeatother
+
+% \bibliographystyle{list_of_libs/gost}
+\bibliographystyle{list_of_libs/plainyr}
+
+
+\RequirePackage{setspace}
+\onehalfspacing
+
+\RequirePackage{cite}
+
+
+
+
+  
